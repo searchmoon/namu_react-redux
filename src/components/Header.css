@@ -1,0 +1,17 @@
+.header {
+  background-color: rgb(49, 134, 106);
+}
+.header .inner{
+  max-width: 1300px;
+  display: flex;
+  color: #eee;
+  justify-content: space-between;
+  padding: 20px;
+}
+.header .inner h1{
+  font-weight: 400;
+  font-size:20px;
+}
+.header .inner span{
+
+}

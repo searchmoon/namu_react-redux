@@ -1,11 +1,11 @@
-import React from 'react';
-import HeaderNavbar from './HeaderNavbar';
+import React from 'react'; 
+import './Header.css';
 
 function Header() {
 
   return (
     <div className="header">
-      <div>
+      <div className="inner">
         <h1>느린나무2호점</h1>
         <span>test</span>
       </div>
