@@ -8,12 +8,7 @@ function Drink2() {
     return (
         <div>
             <h3>{Categories[2]}</h3>
-            {/* <Drink2Menu /> */}
             <Drink2Menu drink3Menu={drink3Menu}/>
-            {/* <Drink2Menu drink3Menu={drink3Menu[1]}/> */}
-            {/* <Drink2Menu drink3Menu={drink3Menu[2]}/> */}
-            {/* <Drink2Menu drink3Menu={drink3Menu[3]}/> */}
-            {/* <Drink2Menu drink3Menu={drink3Menu[4]}/> */}
             <h3>{Categories[3]}</h3>
             <Drink2Menu drink3Menu={drink4Menu}/>
         </div>

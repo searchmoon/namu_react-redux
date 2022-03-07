@@ -8,13 +8,9 @@ function Drink1() {
     return (
         <div>
             <h3>{Categories[0]}</h3>
-            <Drink1Menu drink1Menu={drink1Menu[0]}/>
-            <Drink1Menu drink1Menu={drink1Menu[1]}/>
-            <Drink1Menu drink1Menu={drink1Menu[2]}/>
-            <Drink1Menu drink1Menu={drink1Menu[3]}/>
+            <Drink1Menu drink1Menu={drink1Menu}/>
             <h3>{Categories[1]}</h3>
-            <Drink1Menu drink1Menu={drink2Menu[0]}/>
-            <Drink1Menu drink1Menu={drink2Menu[1]}/>
+            <Drink1Menu drink1Menu={drink2Menu}/>
         </div>
     )
 }

@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
+import IceAndHot from './IceAndHot';
 
 function Drink1Menu(props) {
-    
-    return (
+    const iceAndHot = ['ICE', 'HOT'];
+  return (
+    <div>
+      {props.drink1Menu.map((menu) =>
         <div>
-            <span>{props.drink1Menu}</span>
-                <div>
-                    <button>ICE</button>
-                    <button>HOT</button>
-                </div>
-        </div> 
-    )
+            {menu}<IceAndHot iceAndHot={iceAndHot}/>
+        </div>
+      )}
+      
+    </div>
+  );
 }
 
 export default Drink1Menu;
