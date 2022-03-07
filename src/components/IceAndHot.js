@@ -1,10 +1,10 @@
 import React from 'react';
 
-function IceAndHot(props) {
+function IceAndHot() {
   return (
     <div>
-      <button>{props.iceAndHot[0]}</button>
-      <button>{props.iceAndHot[1]}</button>
+      <button>ICE</button>
+      <button>HOT</button>
     </div> 
   )
 }

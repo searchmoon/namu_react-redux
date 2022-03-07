@@ -8,6 +8,7 @@ function Drink2Menu(props) {
             )}
         </div>
     )
+
 }
 
 export default Drink2Menu;
