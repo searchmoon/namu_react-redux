@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 function Drink() {
   //main component
@@ -41,14 +42,20 @@ function Drink1Menu(props) {
 }
 
 function IceAndHot() {
-  // const onClick = (e) => {
-  //   console.log(e.target.value);
-  // }
-  
+  let [addText, setAddText] = useState("");
+  let [addLists, setAddLists] = useState([]);
+
+  const onClick = (e) => {
+    setAddText(e.target.innerText);
+    setAddLists((currentArray) => [addText, ...currentArray]);
+  };
+  console.log(addLists);
+
+
   return (
     <div>
-      <button>ICE</button>
-      <button>HOT</button>
+      <button addText={addText} onClick={onClick}>ICE</button>
+      <button onClick={onClick}>HOT</button>
     </div>
   );
 }
@@ -89,6 +96,7 @@ function Drink2() {
       <Drink2Menu drink3Menu={drink3Menu} />
       <h3>{Categories[3]}</h3>
       <Drink2Menu drink3Menu={drink4Menu} />
+      <AddDrink />
     </div>
   );
 }
@@ -106,7 +114,6 @@ function Drink2Menu(props) {
 function AddDrink() {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
-
 
   return (
     <div>
