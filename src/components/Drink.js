@@ -3,17 +3,19 @@ import { useState } from "react";
 
 function Drink() {
   //main component
+  let [addLists, setAddLists] = useState([]);
+
   return (
     <div>
       <h2>MENU</h2>
-      <Drink1 />
+      <Drink1 setAddLists={setAddLists} />
       <Drink2 />
-      <AddDrink />
+      <AddDrink addLists={addLists} />
     </div>
   );
 }
 
-function Drink1() {
+function Drink1(props) {
   const drink1Menu = ["아메리카노", "바닐라 라떼", "카페 라떼", "카페모카"];
   const drink2Menu = ["초코 라떼", "말차 라떼"];
   const Categories = ["Coffee", "Latte", "Ade", "Tea"];
@@ -21,9 +23,9 @@ function Drink1() {
   return (
     <div className="drink-list">
       <h3>{Categories[0]}</h3>
-      <Drink1Menu drink1Menu={drink1Menu} />
+      <Drink1Menu drink1Menu={drink1Menu} setAddLists={props.setAddLists} />
       <h3>{Categories[1]}</h3>
-      <Drink1Menu drink1Menu={drink2Menu} />
+      <Drink1Menu drink1Menu={drink2Menu} setAddLists={props.setAddLists}/>
     </div>
   );
 }
@@ -34,7 +36,7 @@ function Drink1Menu(props) {
       {props.drink1Menu.map((menu) => (
         <div>
           {menu}
-          <IceAndHot menu={menu}/>
+          <IceAndHot menu={menu} setAddLists={props.setAddLists}/>
         </div>
       ))}
     </div>
@@ -42,23 +44,15 @@ function Drink1Menu(props) {
 }
 
 function IceAndHot(props) {
-  let [addLists, setAddLists] = useState([]);
 
   const onClick = (e) => {
-    setAddLists((currentArray) => [...currentArray, props.menu + " " + e.target.innerText]);
+    props.setAddLists((currentArray) => [...currentArray, props.menu + " " + e.target.innerText]);
   };
-  console.log(addLists);
-
 
   return (
     <div>
       <button onClick={onClick}>ICE</button>
       <button onClick={onClick}>HOT</button>
-      <ul>
-        {addLists.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
     </div>
   );
 }
@@ -99,7 +93,6 @@ function Drink2() {
       <Drink2Menu drink3Menu={drink3Menu} />
       <h3>{Categories[3]}</h3>
       <Drink2Menu drink3Menu={drink4Menu} />
-      <AddDrink />
     </div>
   );
 }
@@ -114,14 +107,17 @@ function Drink2Menu(props) {
   );
 }
 
-function AddDrink() {
+function AddDrink(props) {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
+  
 
   return (
     <div>
       <ul>
-        <li></li>
+        {props.addLists.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </div>
   );
