@@ -34,28 +34,31 @@ function Drink1Menu(props) {
       {props.drink1Menu.map((menu) => (
         <div>
           {menu}
-          <IceAndHot />
+          <IceAndHot menu={menu}/>
         </div>
       ))}
     </div>
   );
 }
 
-function IceAndHot() {
-  let [addText, setAddText] = useState("");
+function IceAndHot(props) {
   let [addLists, setAddLists] = useState([]);
 
   const onClick = (e) => {
-    setAddText(e.target.innerText);
-    setAddLists((currentArray) => [addText, ...currentArray]);
+    setAddLists((currentArray) => [...currentArray, props.menu + " " + e.target.innerText]);
   };
   console.log(addLists);
 
 
   return (
     <div>
-      <button addText={addText} onClick={onClick}>ICE</button>
+      <button onClick={onClick}>ICE</button>
       <button onClick={onClick}>HOT</button>
+      <ul>
+        {addLists.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
   );
 }
