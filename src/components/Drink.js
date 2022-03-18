@@ -9,7 +9,7 @@ function Drink() {
     <div>
       <h2>MENU</h2>
       <Drink1 setAddLists={setAddLists} />
-      <Drink2 />
+      <Drink2 setAddLists={setAddLists} />
       <AddDrink addLists={addLists} />
     </div>
   );
@@ -57,7 +57,7 @@ function IceAndHot(props) {
   );
 }
 
-function Drink2() {
+function Drink2(props) {
   const drink3Menu = [
     "복숭아 아이스티",
     "청포도 에이드",
@@ -90,18 +90,22 @@ function Drink2() {
   return (
     <div>
       <h3>{Categories[2]}</h3>
-      <Drink2Menu drink3Menu={drink3Menu} />
+      <Drink2Menu drink3Menu={drink3Menu} setAddLists={props.setAddLists}/>
       <h3>{Categories[3]}</h3>
-      <Drink2Menu drink3Menu={drink4Menu} />
+      <Drink2Menu drink3Menu={drink4Menu} setAddLists={props.setAddLists}/>
     </div>
   );
 }
 
 function Drink2Menu(props) {
+  const onClick = (e) => {
+    props.setAddLists((lists) => [lists, e.target.innerText]);
+  }
+  console.log(props.setAddLists);
   return (
     <div>
       {props.drink3Menu.map((menu) => (
-        <button>{menu}</button>
+        <button onClick={onClick}>{menu}</button>
       ))}
     </div>
   );
@@ -114,9 +118,10 @@ function AddDrink(props) {
 
   return (
     <div>
+      <h2>주문목록</h2>
       <ul>
-        {props.addLists.map((item) => (
-          <li>{item}</li>
+        {props.addLists.map((list) => (
+          <li>{list}{<button>x</button>}</li>
         ))}
       </ul>
     </div>
