@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import '../components/Request.css'
 
 function Drink() {
   //main component
@@ -11,6 +12,8 @@ function Drink() {
       <Drink1 setAddLists={setAddLists} />
       <Drink2 setAddLists={setAddLists} />
       <AddDrink addLists={addLists} />
+      <Request />
+      <LastOrder />
     </div>
   );
 }
@@ -95,13 +98,12 @@ function Drink2(props) {
       <Drink2Menu drink3Menu={drink4Menu} setAddLists={props.setAddLists}/>
     </div>
   );
-}
+}  
 
 function Drink2Menu(props) {
   const onClick = (e) => {
-    props.setAddLists((lists) => [lists, e.target.innerText]);
+    props.setAddLists((lists) => [...lists, e.target.innerText]);
   }
-  console.log(props.setAddLists);
   return (
     <div>
       {props.drink3Menu.map((menu) => (
@@ -119,6 +121,7 @@ function AddDrink(props) {
   return (
     <div>
       <h2>주문목록</h2>
+      {console.log(props.addLists)}
       <ul>
         {props.addLists.map((list) => (
           <li>{list}{<button>x</button>}</li>
@@ -127,5 +130,23 @@ function AddDrink(props) {
     </div>
   );
 }
+
+function Request() {
+  return (
+    <div>
+      <h2>요청사항</h2>
+      <textarea className="requestArea" rows="6" placeholder="다른 필요한게 있으시면 적어주세요:)"></textarea>
+    </div>
+  )
+}
+
+function LastOrder() {
+  return (
+    <div>
+      <button>주문</button>
+    </div>
+  )
+}
+
 
 export default Drink;
