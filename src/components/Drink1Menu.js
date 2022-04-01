@@ -1,15 +1,15 @@
 import React from "react";
 import IceAndHot from './IceAndHot';
 
-function Drink1Menu(props) {
+function Drink1Menu({ drink1Menu, setAddLists }) {
   return (
     <div>
-      {props.drink1Menu.map((menu, index) =>
-        <div key={index}>
-            {menu}<IceAndHot />
+      {drink1Menu.map((menu) => (
+        <div>
+          {menu}
+          <IceAndHot menu={menu} setAddLists={setAddLists} />
         </div>
-      )}
-      
+      ))}
     </div>
   );
 }

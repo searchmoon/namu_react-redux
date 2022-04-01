@@ -1,14 +1,16 @@
 import React from 'react';
 
-function Drink2Menu(props) {
+function Drink2Menu({ drink3Menu, setAddLists }) {
+    const onClick = (e) => {
+      setAddLists((lists) => [...lists, e.target.innerText]);
+    };
     return (
-        <div>
-            {props.drink3Menu.map((menu, index) => 
-                <button key={index}>{menu}</button>
-            )}
-        </div>
-    )
-
-}
+      <div>
+        {drink3Menu.map((menu) => (
+          <button onClick={onClick}>{menu}</button>
+        ))}
+      </div>
+    );
+  }
 
 export default Drink2Menu;

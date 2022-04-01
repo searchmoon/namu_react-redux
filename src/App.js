@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import "./reset.css";
 import Header from "./components/Header";
-// import Main from './components/Main';
-import Drink from "./components/Drink";
+import Main from './components/Main';
 import Footer from "./components/Footer";
 import { useState } from "react";
 
@@ -17,7 +16,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Drink
+      <Main
         deleteBtn={deleteBtn}
         addLists={addLists}
         setAddLists={setAddLists}
