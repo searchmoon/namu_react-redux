@@ -1,17 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import '../components/Request.css'
+import "../components/Request.css";
 
-function Drink() {
+function Drink({ deleteBtn, addLists, setAddLists }) {
   //main component
-  let [addLists, setAddLists] = useState([]);
+  // let [addLists, setAddLists] = useState([]);
 
   return (
     <div>
       <h2>MENU</h2>
       <Drink1 setAddLists={setAddLists} />
       <Drink2 setAddLists={setAddLists} />
-      <AddDrink addLists={addLists} />
+      <AddDrink addLists={addLists} deleteBtn={deleteBtn} />
       <Request />
       <LastOrder />
     </div>
@@ -28,7 +28,7 @@ function Drink1(props) {
       <h3>{Categories[0]}</h3>
       <Drink1Menu drink1Menu={drink1Menu} setAddLists={props.setAddLists} />
       <h3>{Categories[1]}</h3>
-      <Drink1Menu drink1Menu={drink2Menu} setAddLists={props.setAddLists}/>
+      <Drink1Menu drink1Menu={drink2Menu} setAddLists={props.setAddLists} />
     </div>
   );
 }
@@ -39,7 +39,7 @@ function Drink1Menu(props) {
       {props.drink1Menu.map((menu) => (
         <div>
           {menu}
-          <IceAndHot menu={menu} setAddLists={props.setAddLists}/>
+          <IceAndHot menu={menu} setAddLists={props.setAddLists} />
         </div>
       ))}
     </div>
@@ -47,9 +47,11 @@ function Drink1Menu(props) {
 }
 
 function IceAndHot(props) {
-
   const onClick = (e) => {
-    props.setAddLists((currentArray) => [...currentArray, props.menu + " " + e.target.innerText]);
+    props.setAddLists((currentArray) => [
+      ...currentArray,
+      props.menu + " " + e.target.innerText,
+    ]);
   };
 
   return (
@@ -93,17 +95,17 @@ function Drink2(props) {
   return (
     <div>
       <h3>{Categories[2]}</h3>
-      <Drink2Menu drink3Menu={drink3Menu} setAddLists={props.setAddLists}/>
+      <Drink2Menu drink3Menu={drink3Menu} setAddLists={props.setAddLists} />
       <h3>{Categories[3]}</h3>
-      <Drink2Menu drink3Menu={drink4Menu} setAddLists={props.setAddLists}/>
+      <Drink2Menu drink3Menu={drink4Menu} setAddLists={props.setAddLists} />
     </div>
   );
-}  
+}
 
-function Drink2Menu(props) {
+function Drink2Menu(props, { setAddLists, addLists }) {
   const onClick = (e) => {
     props.setAddLists((lists) => [...lists, e.target.innerText]);
-  }
+  };
   return (
     <div>
       {props.drink3Menu.map((menu) => (
@@ -116,15 +118,20 @@ function Drink2Menu(props) {
 function AddDrink(props) {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
-  
+  function clickDeleteBtn(index) {
+    props.deleteBtn(index);
+  }
 
   return (
     <div>
       <h2>주문목록</h2>
       {console.log(props.addLists)}
       <ul>
-        {props.addLists.map((list) => (
-          <li>{list}{<button>x</button>}</li>
+        {props.addLists.map((list, index) => (
+          <li>
+            {list}
+            {<button onClick={() => clickDeleteBtn(index)}>x</button>}
+          </li>
         ))}
       </ul>
     </div>
@@ -135,9 +142,13 @@ function Request() {
   return (
     <div>
       <h2>요청사항</h2>
-      <textarea className="requestArea" rows="6" placeholder="다른 필요한게 있으시면 적어주세요:)"></textarea>
+      <textarea
+        className="requestArea"
+        rows="6"
+        placeholder="다른 필요한게 있으시면 적어주세요:)"
+      ></textarea>
     </div>
-  )
+  );
 }
 
 function LastOrder() {
@@ -145,8 +156,7 @@ function LastOrder() {
     <div>
       <button>주문</button>
     </div>
-  )
+  );
 }
-
 
 export default Drink;
