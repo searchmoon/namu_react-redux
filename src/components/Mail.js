@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Mail() {
   return (
@@ -6,4 +6,4 @@ function Mail() {
   )
 }
 
-export default Mail
+export default Mail;
