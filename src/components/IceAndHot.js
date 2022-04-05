@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from "styled-components";
 
 function IceAndHot({ setAddLists, menu }) {
   const onClick = (e) => {
@@ -8,11 +9,30 @@ function IceAndHot({ setAddLists, menu }) {
     ]);
   };
 
+  const Div = styled.div`
+    display: flex;
+  `
+  const IceBtn = styled.button`
+    color: blue;
+    border: 1px solid blue;
+    &:hover{
+      color: white;
+      background: ${props => props.color || 'blue' }
+    }
+  `
+  const HotBtn = styled.button`
+    color: red;
+    border: 1px solid red;
+    &:hover{
+      color: white;
+      background: ${props => props.color || 'red' }
+    }
+  `
   return (
-    <div>
-      <button onClick={onClick}>ICE</button>
-      <button onClick={onClick}>HOT</button>
-    </div>
+    <Div>
+      <IceBtn onClick={onClick}>ICE</IceBtn>
+      <HotBtn onClick={onClick}>HOT</HotBtn>
+    </Div>
   );
 }
 
