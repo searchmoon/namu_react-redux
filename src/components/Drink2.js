@@ -1,5 +1,6 @@
 import React from 'react';
 import Drink2Menu from './Drink2Menu';
+import styled from 'styled-components';
 
 function Drink2({ setAddLists }) {
     const drink3Menu = [
@@ -31,13 +32,19 @@ function Drink2({ setAddLists }) {
       "아쌈",
     ];
     const Categories = ["Coffee", "Latte", "Ade", "Tea"];
+    
+    const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `
     return (
-      <div>
+      <Div>
         <h3>{Categories[2]}</h3>
         <Drink2Menu drink3Menu={drink3Menu} setAddLists={setAddLists} />
         <h3>{Categories[3]}</h3>
         <Drink2Menu drink3Menu={drink4Menu} setAddLists={setAddLists} />
-      </div>
+      </Div>
     );
   }
 

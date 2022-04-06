@@ -9,9 +9,6 @@ function IceAndHot({ setAddLists, menu }) {
     ]);
   };
 
-  const Div = styled.div`
-    display: flex;
-  `
   const IceBtn = styled.button`
     color: blue;
     border: 1px solid blue;
@@ -29,10 +26,10 @@ function IceAndHot({ setAddLists, menu }) {
     }
   `
   return (
-    <Div>
+    <div>
       <IceBtn onClick={onClick}>ICE</IceBtn>
       <HotBtn onClick={onClick}>HOT</HotBtn>
-    </Div>
+    </div>
   );
 }
 
