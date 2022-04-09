@@ -5,8 +5,11 @@ import styled from "styled-components";
 function Drink1Menu({ drink1Menu, setAddLists }) {
   const Div = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 290px;
+    font-weight: 700;
+    color: #444;
   `
 
   return (

@@ -8,22 +8,19 @@ import styled from "styled-components";
 
 function Main({ deleteBtn, addLists, setAddLists }) {
 
-  const H1 = styled.h1`
-    display: flex;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: 700;
+  const Div = styled.div`
+    background-color: #f1f8f2;
   `
   return (
-    <div>
-      <H1>MENU</H1>
+    <Div>
+      <h2>MENU</h2>
       <Drink1 setAddLists={setAddLists} />
       <Drink2 setAddLists={setAddLists} />
       <OrderListAndRequest addLists={addLists} deleteBtn={deleteBtn} />
       <Routes>
         <Route path="/order" element={<Order />}/>
       </Routes>
-    </div>
+    </Div>
   );
 }
 export default Main;
