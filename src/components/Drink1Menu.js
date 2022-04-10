@@ -14,8 +14,8 @@ function Drink1Menu({ drink1Menu, setAddLists }) {
 
   return (
     <div>
-      {drink1Menu.map((menu) => (
-        <Div>
+      {drink1Menu.map((menu, index) => (
+        <Div key={index}>
           {menu}
           <IceAndHot menu={menu} setAddLists={setAddLists} />
         </Div>

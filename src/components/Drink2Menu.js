@@ -51,8 +51,8 @@ function Drink2Menu({ drink3Menu, setAddLists }) {
   return (
     <DivWrap>
       <Div>
-          {drink3Menu.map((menu) => (
-            <Button onClick={onClick}>{menu}</Button>
+          {drink3Menu.map((menu, index) => (
+            <Button key={index} onClick={onClick}>{menu}</Button>
           ))}
       </Div>
     </DivWrap>
