@@ -5,8 +5,16 @@ import OrderListAndRequest from "./OrderListAndRequest";
 import { Routes, Route } from "react-router-dom";
 import Order from "./Order";
 import styled from "styled-components";
+import { useState } from "react";
 
-function Main({ deleteBtn, addLists, setAddLists }) {
+function Main() {
+
+  let [addLists, setAddLists] = useState([]);
+
+  function deleteBtn(index) {
+    const updatedTodos = addLists.filter((e, idx) => idx !== index);
+    setAddLists(updatedTodos);
+  }
 
   const Div = styled.div`
     background-color: #f1f8f2;
