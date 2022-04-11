@@ -5,7 +5,10 @@ function Header() {
   const HeaderDiv = styled.div`
     background-color: rgb(56, 141, 113);
     /* background-color: #6c8a75; */
+    font-size: 20px;
     color: rgb(110, 142, 201);
+    position: fixed;
+    width: 100vw;
   `
   const InnerDiv = styled.div`
     max-width: 1300px;

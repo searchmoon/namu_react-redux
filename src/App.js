@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import "./reset.css";
 import Header from "./components/Header";
-import Main from './components/Main';
+import Main from "./components/Main";
 import Footer from "./components/Footer";
-import { useState } from "react";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-
 function App() {
+  const Div = styled.div`
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: pink;
+    position: absolute;
+    &.disappear {
+      display: none;
+    }
+  `;
+  
   const GlobalStyle = createGlobalStyle`
   ${reset};
   * {
@@ -45,22 +54,31 @@ function App() {
   }
   `;
 
-  let [addLists, setAddLists] = useState([]);
+  //첫 화면 1초 다른창 띄우기
 
-  function deleteBtn(index) {
-    const updatedTodos = addLists.filter((e, idx) => idx !== index);
-    setAddLists(updatedTodos);
-  }
+  const merong = () => {
+    console.log("메롱");
+    Div.classList.add("disappear");
+  };
+  useEffect(() => {
+    console.log("떳다.");
+    // Div.classList.add("disappear");
+    setTimeout(merong, 3000);
+  });
+  // const div = document.querySelector("div");
+
+  // function disappear() {
+  //   Div.classList.add("disappear");
+  // }
+  // setTimeout(disappear, 1000);
   return (
     <div>
       <GlobalStyle />
-      <Header />
-      <Main
-        deleteBtn={deleteBtn}
-        addLists={addLists}
-        setAddLists={setAddLists}
-      />
-      <Footer />
+      <Div>
+        <Header />
+        <Main />
+        <Footer />
+      </Div>
     </div>
   );
 }

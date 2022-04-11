@@ -11,20 +11,18 @@ function Main() {
 
   let [addLists, setAddLists] = useState([]);
 
-  function deleteBtn(index) {
-    const updatedTodos = addLists.filter((e, idx) => idx !== index);
-    setAddLists(updatedTodos);
-  }
-
   const Div = styled.div`
     background-color: #f1f8f2;
   `
+  const H2 = styled.h2`
+  margin-top: 60px;
+`
   return (
     <Div>
-      <h2>MENU</h2>
+      <H2>MENU</H2>
       <Drink1 setAddLists={setAddLists} />
       <Drink2 setAddLists={setAddLists} />
-      <OrderListAndRequest addLists={addLists} deleteBtn={deleteBtn} />
+      <OrderListAndRequest addLists={addLists} setAddLists={setAddLists}/>
       <Routes>
         <Route path="/order" element={<Order />}/>
       </Routes>

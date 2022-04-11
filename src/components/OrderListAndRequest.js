@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
 
-function OrderListAndRequest({ deleteBtn, addLists }) {
+function OrderListAndRequest({ addLists, setAddLists }) {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
-  function clickDeleteBtn(index) {
-    deleteBtn(index);
+  function deleteBtn(index) {
+    const updateLists = addLists.filter((e, idx) => idx !== index);
+    setAddLists(updateLists);
   }
+  
   const Div = styled.div`
     width: 100%;
     display: flex;
@@ -31,14 +33,14 @@ function OrderListAndRequest({ deleteBtn, addLists }) {
     min-height: 120px;
     background-color: #fff;
     padding: 10px 20px;
-    border-radius: 20px;
-    border: 2px dashed #aaa;
+    border-radius: 15px;
+    border: 2px solid #bbb;
   `;
   const Li = styled.li`
     list-style: inside;
   `;
   const TextArea = styled.textarea`
-    border-radius: 10px;
+    border-radius: 15px;
     border: 2px solid #bbb;
     resize: none;
     width: 80vw;
@@ -46,7 +48,7 @@ function OrderListAndRequest({ deleteBtn, addLists }) {
   `;
   const OrderButton = styled.button`
     text-decoration: none;
-    border: 2px solid #ddd;
+    border: 2px solid #bbb;
     margin: 10px 0 30px 0;
   `;
 
@@ -55,11 +57,11 @@ function OrderListAndRequest({ deleteBtn, addLists }) {
       <h2>주문목록</h2>
       <OrderListDiv>
         <ul>
-          {addLists.map((list, index) => (
+          {addLists.map((list,index) => (
             <Li>
               {list}
               {
-                <Button onClick={() => clickDeleteBtn(index)}>
+                <Button onClick={() => deleteBtn(index)}>
                   <GrClose />
                 </Button>
               }
