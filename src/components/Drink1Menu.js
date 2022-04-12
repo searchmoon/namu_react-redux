@@ -2,7 +2,6 @@ import React from "react";
 import IceAndHot from "./IceAndHot";
 import styled from "styled-components";
 
-function Drink1Menu({ drink1Menu, setAddLists }) {
   const Div = styled.div`
     display: flex;
     justify-content: space-between;
@@ -11,6 +10,8 @@ function Drink1Menu({ drink1Menu, setAddLists }) {
     font-weight: 700;
     color: #444;
   `
+  
+function Drink1Menu({ drink1Menu, setAddLists }) {
 
   return (
     <div>

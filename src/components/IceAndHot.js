@@ -1,14 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 
-function IceAndHot({ setAddLists, menu }) {
-  const onClick = (e) => {
-    setAddLists((currentArray) => [
-      ...currentArray,
-      menu + " " + e.target.innerText,
-    ]);
-  };
-
   const IceBtn = styled.button`
     color: #3f51b5;
     border: 2px solid #3f51b5;
@@ -27,6 +19,14 @@ function IceAndHot({ setAddLists, menu }) {
       background: ${props => props.color || '#ec407a' }
     }
   `
+function IceAndHot({ setAddLists, menu }) {
+  const onClick = (e) => {
+    setAddLists((currentArray) => [
+      ...currentArray,
+      menu + " " + e.target.innerText,
+    ]);
+  };
+
   return (
     <div>
       <IceBtn onClick={onClick}>ICE</IceBtn>

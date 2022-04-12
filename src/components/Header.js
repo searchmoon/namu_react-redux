@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-function Header() {
   const HeaderDiv = styled.div`
     background-color: rgb(56, 141, 113);
     /* background-color: #6c8a75; */
@@ -18,6 +17,7 @@ function Header() {
     padding: 20px;
     margin: 0 auto;
   `
+function Header() {
 
   return (
     <HeaderDiv className="header">

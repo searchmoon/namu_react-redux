@@ -7,16 +7,16 @@ import Order from "./Order";
 import styled from "styled-components";
 import { useState } from "react";
 
-function Main() {
+const Div = styled.div`
+  background-color: #f1f8f2;
+`
+const H2 = styled.h2`
+/* margin-top: 60px; */
+`
 
+function Main() {
   let [addLists, setAddLists] = useState([]);
 
-  const Div = styled.div`
-    background-color: #f1f8f2;
-  `
-  const H2 = styled.h2`
-  margin-top: 60px;
-`
   return (
     <Div>
       <H2>MENU</H2>

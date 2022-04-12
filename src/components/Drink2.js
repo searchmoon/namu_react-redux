@@ -2,6 +2,12 @@ import React from "react";
 import Drink2Menu from "./Drink2Menu";
 import styled from "styled-components";
 
+  const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
+
 function Drink2({ setAddLists }) {
   const drink3Menu = [
     "복숭아 아이스티",
@@ -33,11 +39,6 @@ function Drink2({ setAddLists }) {
   ];
   const Categories = ["Coffee", "Latte", "Ade", "Tea"];
 
-  const Div = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
 
   return (
     <Div>

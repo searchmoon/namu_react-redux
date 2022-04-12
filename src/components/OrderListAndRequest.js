@@ -3,15 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
 
-function OrderListAndRequest({ addLists, setAddLists }) {
-  //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
-  //adddrink에 li에 그 btn의 innertext를 넣어줌
-  function deleteBtn(index) {
-    const updateLists = addLists.filter((e, idx) => idx !== index);
-    setAddLists(updateLists);
-  }
-  
-  const Div = styled.div`
+const Div = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -50,15 +42,28 @@ function OrderListAndRequest({ addLists, setAddLists }) {
     text-decoration: none;
     border: 2px solid #bbb;
     margin: 10px 0 30px 0;
+    color: "#666";
+    font-size: 16;
+    font-weight: 700;
   `;
+
+function OrderListAndRequest({ addLists, setAddLists }) {
+  //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
+  //adddrink에 li에 그 btn의 innertext를 넣어줌
+  function deleteBtn(index) {
+    const updateLists = addLists.filter((e, idx) => idx !== index);
+    setAddLists(updateLists);
+  }
+
+  
 
   return (
     <Div>
       <h2>주문목록</h2>
       <OrderListDiv>
         <ul>
-          {addLists.map((list,index) => (
-            <Li>
+          {addLists.map((list, index) => (
+            <Li key={index}>
               {list}
               {
                 <Button onClick={() => deleteBtn(index)}>
@@ -74,17 +79,9 @@ function OrderListAndRequest({ addLists, setAddLists }) {
         rows="7"
         placeholder="다른 필요한게 있으시면 적어주세요:)"
       ></TextArea>
-      <OrderButton>
-        <Link
-          style={{
-            color: "#666",
-            fontSize: 16,
-            fontWeight: 700,
-            textDecoration: "none",
-          }}
-          to="/order"
-        >주문</Link>
-      </OrderButton>
+      <Link to="/order">
+        <OrderButton>주문</OrderButton>
+      </Link>
     </Div>
   );
 }

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Mail from "./Mail";
 import styled from "styled-components";
 
-function Footer() {
   const Div = styled.div`
     margin: 0 auto;
     padding: 20px;
@@ -15,6 +14,7 @@ function Footer() {
   const P = styled.p`
     padding: 5px 0;
   `
+function Footer() {
   return (
     <div>
       <Div>
