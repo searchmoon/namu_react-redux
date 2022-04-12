@@ -1,6 +1,22 @@
 import React from 'react';
 import styled from "styled-components";
 
+function IceAndHot({ setAddLists, menu }) {
+  const onClick = (e) => {
+    setAddLists((currentArray) => [
+      ...currentArray,
+      menu + " " + e.target.innerText,
+    ]);
+  };
+
+  return (
+    <div>
+      <IceBtn onClick={onClick}>ICE</IceBtn>
+      <HotBtn onClick={onClick}>HOT</HotBtn>
+    </div>
+  );
+}
+
   const IceBtn = styled.button`
     color: #3f51b5;
     border: 2px solid #3f51b5;
@@ -19,20 +35,5 @@ import styled from "styled-components";
       background: ${props => props.color || '#ec407a' }
     }
   `
-function IceAndHot({ setAddLists, menu }) {
-  const onClick = (e) => {
-    setAddLists((currentArray) => [
-      ...currentArray,
-      menu + " " + e.target.innerText,
-    ]);
-  };
-
-  return (
-    <div>
-      <IceBtn onClick={onClick}>ICE</IceBtn>
-      <HotBtn onClick={onClick}>HOT</HotBtn>
-    </div>
-  );
-}
 
 export default IceAndHot;

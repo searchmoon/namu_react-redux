@@ -18,7 +18,6 @@ const WrapDiv = styled.div`
   height: 100vh;
   z-index: 10;
   background-color: #338569;
-  /* position: fixed; */
 `;
 const Div = styled.div`
   width: 200px;
@@ -29,10 +28,7 @@ const LogoImg = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* border-radius: 38%; */
   border-radius: 5%;
 `;
-// const Title = styled.p`
 
-// `
 export default Splash;
