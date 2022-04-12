@@ -55,13 +55,13 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 500;
     padding: 20px 0 10px 0;
     color: #333;
   }
   h3 {
-    font-size: 20px;
+    font-size: 18px;
     margin: 10px 0;
   }
   `;

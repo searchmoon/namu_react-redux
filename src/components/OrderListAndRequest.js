@@ -82,6 +82,7 @@ const TextArea = styled.textarea`
   resize: none;
   width: 80vw;
   padding: 10px;
+  font-size: 18px;
 `;
 const OrderButton = styled.button`
   border: 2px solid #bbb;
