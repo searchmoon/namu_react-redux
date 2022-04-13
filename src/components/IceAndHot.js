@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from "styled-components";
 
-function IceAndHot({ setAddLists, menu }) {
+function IceAndHot({ setAddLists, menu, setError }) {
   const onClick = (e) => {
     setAddLists((currentArray) => [
       ...currentArray,
       menu + " " + e.target.innerText,
     ]);
+    setError(false);
   };
 
   return (

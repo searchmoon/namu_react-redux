@@ -6,14 +6,16 @@ import styled from "styled-components";
 import { useState } from "react";
 
 function Main() {
-  let [addLists, setAddLists] = useState([]);
+  const [addLists, setAddLists] = useState([]);
+  const [error, setError] = useState(false);
+  console.log(addLists);
 
   return (
     <Div>
       <H2>MENU</H2>
-      <Drink1 setAddLists={setAddLists} />
-      <Drink2 setAddLists={setAddLists} />
-      <OrderListAndRequest addLists={addLists} setAddLists={setAddLists} />
+      <Drink1 setAddLists={setAddLists} error={error} setError={setError}/>
+      <Drink2 setAddLists={setAddLists} error={error} setError={setError}/>
+      <OrderListAndRequest addLists={addLists} error={error} setError={setError} setAddLists={setAddLists} />
     </Div>
   );
 }

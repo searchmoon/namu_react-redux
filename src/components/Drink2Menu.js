@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-function Drink2Menu({ drink3Menu, setAddLists }) {
+function Drink2Menu({ drink3Menu, setAddLists, setError, error }) {
   const onClick = (e) => {
     setAddLists((lists) => [...lists, e.target.innerText]);
+    // setAddLists(e.target.innerText);
+    setError(false);
   };
 
   return (

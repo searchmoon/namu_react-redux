@@ -2,7 +2,7 @@ import React from "react";
 import Drink2Menu from "./Drink2Menu";
 import styled from "styled-components";
 
-function Drink2({ setAddLists }) {
+function Drink2({ setAddLists, setError, error }) {
   const drink3Menu = [
     "복숭아 아이스티",
     "청포도 에이드",
@@ -36,9 +36,9 @@ function Drink2({ setAddLists }) {
   return (
     <Div>
       <h3>{Categories[2]}</h3>
-      <Drink2Menu drink3Menu={drink3Menu} setAddLists={setAddLists} />
+      <Drink2Menu drink3Menu={drink3Menu} setAddLists={setAddLists} error={error} setError={setError} />
       <h3>{Categories[3]}</h3>
-      <Drink2Menu drink3Menu={drink4Menu} setAddLists={setAddLists} />
+      <Drink2Menu drink3Menu={drink4Menu} setAddLists={setAddLists} error={error} setError={setError}/>
     </Div>
   );
 }

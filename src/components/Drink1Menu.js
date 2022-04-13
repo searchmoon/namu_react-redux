@@ -2,13 +2,13 @@ import React from "react";
 import IceAndHot from "./IceAndHot";
 import styled from "styled-components";
 
-function Drink1Menu({ drink1Menu, setAddLists }) {
+function Drink1Menu({ drink1Menu, setAddLists, setError }) {
   return (
     <div>
       {drink1Menu.map((menu, index) => (
         <Div key={index}>
           {menu}
-          <IceAndHot menu={menu} setAddLists={setAddLists} />
+          <IceAndHot menu={menu} setAddLists={setAddLists} setError={setError}/>
         </Div>
       ))}
     </div>
