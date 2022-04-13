@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../images/logo-1.png";
-// import logo from "../images/logo_transparent.png";
+import logo from "../images/logo_transparent.png";
 
 function Splash() {
   return (
@@ -23,12 +22,12 @@ const Div = styled.div`
   width: 200px;
 `;
 const LogoImg = styled.img`
-  width: 150px;
+  width: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 5%;
+  border-radius: 37%;
 `;
 
 export default Splash;
