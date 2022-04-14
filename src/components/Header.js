@@ -1,11 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <HeaderDiv className="header">
       <InnerDiv className="inner">
-        <h1>느린나무2호점</h1>
+        <Link 
+        to="/"
+        style={{
+          textDecoration: "none",
+          color: "#fff",
+        }}
+        ><h1>느린나무2호점</h1>
+        </Link>
         <span>test</span>
       </InnerDiv>
     </HeaderDiv>
