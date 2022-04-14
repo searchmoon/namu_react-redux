@@ -11,32 +11,12 @@ function OrderListAndRequest({ addLists, setAddLists, error, setError, request, 
     setAddLists(updateLists);
   }
 const onTextChange = (e) => {
-  setRequest(() => [e.target.value]);
+  setRequest(() => e.target.value)
+
 };
 console.log(request);
-// 내가 지금 하려고 하는것:
-// 주문목록에 메뉴가 안들어가있으면 에러메세지가 뜸.
-// 근데 메뉴가 안들어가 있어도 요청사항에 입력값이 주어지면
-// 에러메세지가 뜨지 않고 주문이 되게 하려고 함
-// 어떻게 해야할까?
-// a, b둘다 아무것도 입력을 안하고 버튼 클릭 시 에러메세지 뜨게.
-// a, b 둘중에 하나라도 입력값이 있으면 에러메세지가 뜨지 않는다.
-// 지금은 우선 a에 입력값이 없을때에만 에러메세지가 뜬다.
-// a(addList), b(request) 모두 없을 때 에러메세지가 뜨게 수정
 
-
-  // const [textValue, setTextValue] = useState(false);
-  // const onChange = (event) => {
-  //   // setTextValue(event.currentTarget.value);
-  //   if (event.currentTarget.value) {
-  //     setTextValue(true);
-  //   } else {
-  //     setTextValue(false);
-  //   }
-  //   console.log(event.currentTarget.value);
-  //   console.log(textValue);
-  // }
-  //onClick 함수를 실행했을 때 floatError가 동작을 하면서
+ //onClick 함수를 실행했을 때 floatError가 동작을 하면서
   //상태변수인 error 값이 0 이라면 Error 메세지가 뜨게 하는거 
   const floatError = () => {
     setError(true);
@@ -64,9 +44,10 @@ console.log(request);
         onChange={onTextChange}
         rows="5"
         placeholder="다른 필요한게 있으시면 적어주세요:)"
-      >{request}</TextArea>
+        value={request}
+      ></TextArea>
       {error && <Error>* 주문이나 요청사항을 입력해 주세요.*</Error>}
-      {(addLists.length && request.length) || (addLists.length || request.length) > 0 ? (
+      {(addLists.length || (request.length > 0)) ? (
         <OrderButton>
           <Link
             style={{
