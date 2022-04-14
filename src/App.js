@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-// import "./reset.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -35,6 +34,12 @@ const GlobalStyle = createGlobalStyle`
   ${reset};
   * {
     box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
+  }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;  
   }
   button {
     color: #333;
