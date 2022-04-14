@@ -7,24 +7,32 @@ import { useState } from "react";
 
 function Main() {
   const [addLists, setAddLists] = useState([]);
+  const [request, setRequest] = useState('');
   const [error, setError] = useState(false);
   console.log(addLists);
 
   return (
     <Div>
       <H2>MENU</H2>
-      <Drink1 setAddLists={setAddLists} error={error} setError={setError}/>
-      <Drink2 setAddLists={setAddLists} error={error} setError={setError}/>
-      <OrderListAndRequest addLists={addLists} error={error} setError={setError} setAddLists={setAddLists} />
+      <Drink1 setAddLists={setAddLists} error={error} setError={setError} />
+      <Drink2 setAddLists={setAddLists} error={error} setError={setError} />
+      <OrderListAndRequest
+        addLists={addLists}
+        setAddLists={setAddLists}
+        error={error}
+        setError={setError}
+        request={request}
+        setRequest={setRequest}
+      />
     </Div>
   );
 }
 
-  const Div = styled.div`
-    background-color: #f1f8f2;
-  `;
-  const H2 = styled.h2`
-    padding-top: 70px;
-  `;
+const Div = styled.div`
+  background-color: #f1f8f2;
+`;
+const H2 = styled.h2`
+  padding-top: 70px;
+`;
 
 export default Main;
