@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
 
-function OrderListAndRequest({ addLists, setAddLists }) {
+function OrderListAndRequest({ addLists, setAddLists, error, setError }) {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
   function deleteBtn(index) {
     const updateLists = addLists.filter((e, idx) => idx !== index);
     setAddLists(updateLists);
   }
-
+  // const [textValue, setTextValue] = useState(false);
+  // const onChange = (event) => {
+  //   // setTextValue(event.currentTarget.value);
+  //   if (event.currentTarget.value) {
+  //     setTextValue(true);
+  //   } else {
+  //     setTextValue(false);
+  //   }
+  //   console.log(event.currentTarget.value);
+  //   console.log(textValue);
+  // }
+  //onClick 함수를 실행했을 때 floatError가 동작을 하면서
+  //상태변수인 error 값이 0 이라면 Error 메세지가 뜨게 하는거 
+  const floatError = () => {
+    setError(true);
+  }
   return (
     <Div>
       <h2>주문목록</h2>
@@ -30,21 +45,32 @@ function OrderListAndRequest({ addLists, setAddLists }) {
       </OrderListDiv>
       <h2>요청사항</h2>
       <TextArea
-        rows="7"
+        // onChange={onChange}
+        rows="6"
         placeholder="다른 필요한게 있으시면 적어주세요:)"
+        // value={textValue}
       ></TextArea>
-
-      <OrderButton>
-        <Link
-          style={{
-            textDecoration: "none",
-            color: "#777",
-          }}
-          to="/order"
+      {error && <Error>* 메뉴를 선택해 주세요.</Error>}
+      {addLists.length > 0 ? (
+        <OrderButton>
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "#777",
+            }}
+            to="/order"
+          >
+            주문
+          </Link>
+        </OrderButton>
+      ) : (
+        <OrderButton 
+        onClick={floatError}
+        style={{ color: "#777" }}
         >
-          주문
-        </Link>
-      </OrderButton>
+            주문
+        </OrderButton>
+      )}
     </Div>
   );
 }
@@ -84,6 +110,10 @@ const TextArea = styled.textarea`
   padding: 10px;
   font-size: 18px;
 `;
+const Error = styled.p`
+  color: red;
+  margin-top: 10px;
+`
 const OrderButton = styled.button`
   border: 2px solid #bbb;
   padding: 9px 13px;
