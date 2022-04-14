@@ -4,20 +4,18 @@ import styled from "styled-components";
 
 function Footer() {
   return (
-    <div>
-      <Div>
-        <Link
-          to="/Mail"
-          style={{
-            textDecoration: "none",
-            color: "#777",
-          }}
-        >
-          moon901212@gmail.com
-        </Link>
-        <P>Copyright Ⓒ 문정은 2022. All Rights Reserved.</P>
-      </Div>
-    </div>
+    <Div>
+      <Link
+        to="/Mail"
+        style={{
+          textDecoration: "none",
+          color: "#777",
+        }}
+      >
+        moon901212@gmail.com
+      </Link>
+      <P>Copyright Ⓒ 문정은 2022. All Rights Reserved.</P>
+    </Div>
   );
 }
 

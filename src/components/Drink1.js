@@ -8,7 +8,7 @@ function Drink1({ setAddLists, setError }) {
   const Categories = ["Coffee", "Latte", "Ade", "Tea"];
 
   return (
-    <Div className="drink-list">
+    <Div>
       <h3>{Categories[0]}</h3>
       <Drink1Menu setAddLists={setAddLists} drink1Menu={drink1Menu} setError={setError}/>
       <h3>{Categories[1]}</h3>

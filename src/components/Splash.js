@@ -5,9 +5,7 @@ import logo from "../images/logo_transparent.png";
 function Splash() {
   return (
     <WrapDiv>
-      <Div>
-        <LogoImg src={logo} alt="logo" />
-      </Div>
+      <LogoImg src={logo} alt="logo" />
     </WrapDiv>
   );
 }
@@ -17,9 +15,6 @@ const WrapDiv = styled.div`
   height: 100vh;
   z-index: 10;
   background-color: #338569;
-`;
-const Div = styled.div`
-  width: 200px;
 `;
 const LogoImg = styled.img`
   width: 200px;

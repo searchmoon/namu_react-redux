@@ -22,6 +22,7 @@ function IceAndHot({ setAddLists, menu, setError }) {
     color: #3f51b5;
     border: 2px solid #3f51b5;
     min-width: 70px;
+    font-weight: 700;
     &:hover{
       color: white;
       background: ${props => props.color || '#3f51b5' }
@@ -31,6 +32,7 @@ function IceAndHot({ setAddLists, menu, setError }) {
     color: #ec407a;
     border: 2px solid #ec407a;
     min-width: 70px;
+    font-weight: 700;
     &:hover{
       color: white;
       background: ${props => props.color || '#ec407a' }

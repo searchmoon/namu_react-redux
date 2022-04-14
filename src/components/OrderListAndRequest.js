@@ -109,6 +109,9 @@ const TextArea = styled.textarea`
   width: 80vw;
   padding: 10px;
   font-size: 18px;
+  ::placeholder {
+    color: #bbb;
+  }
 `;
 const Error = styled.p`
   color: red;
