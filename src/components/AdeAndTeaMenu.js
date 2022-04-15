@@ -1,18 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-function Drink2Menu({ drink3Menu, setAddLists, setError} ) {
+function Drink2Menu({ drink2Menu, setAddLists, setError, isAde }) {
   const onClick = (e) => {
     setAddLists((lists) => [...lists, e.target.innerText]);
-    // setAddLists(e.target.innerText);
     setError(false);
   };
 
   return (
     <DivWrap>
       <Div>
-        {drink3Menu.map((menu, index) => (
-          <Button key={index} onClick={onClick}>
+        {drink2Menu.map((menu, index) => (
+          <Button key={index} onClick={onClick} isAde={isAde}>
             {menu}
           </Button>
         ))}
@@ -43,13 +42,13 @@ const Div = styled.div`
 
 const Button = styled.button`
   min-width: 150px;
-  color: rgb(51, 107, 84);
+  color: ${props => props.isAde ? '#257488' : '#ec407a'};
   font-weight: 700;
-  border: 2px solid #338569;
+  border: 2px solid ${props => props.isAde ? '#3d94aa' : '#ee5a8b'};
   :hover {
     font-weight: 700;
     color: #fff;
-    background-color: #338569;
+    background-color: ${props => props.isAde ? '#3d94aa' : '#ee5a8b'};
   }
   @media screen and (min-width: 800px) and (max-width: 100vw) {
     /* width: 20%; */

@@ -1,21 +1,32 @@
 import React from "react";
-import Drink1 from "./Drink1";
-import Drink2 from "./Drink2";
+import CoffeeAndLatte from "./CoffeeAndLatte";
+import AdeAndTea from "./AdeAndTea";
 import OrderListAndRequest from "./OrderListAndRequest";
 import styled from "styled-components";
 import { useState } from "react";
 
 function Main() {
+  const categories = ["Coffee", "Latte", "Ade", "Tea"];
   const [addLists, setAddLists] = useState([]);
-  const [request, setRequest] = useState('');
+  const [request, setRequest] = useState("");
   const [error, setError] = useState(false);
   console.log(addLists);
 
   return (
     <Div>
       <H2>MENU</H2>
-      <Drink1 setAddLists={setAddLists} error={error} setError={setError} />
-      <Drink2 setAddLists={setAddLists} error={error} setError={setError} />
+      <CoffeeAndLatte
+        setAddLists={setAddLists}
+        error={error}
+        setError={setError}
+        categories={categories}
+      />
+      <AdeAndTea
+        setAddLists={setAddLists}
+        error={error}
+        setError={setError}
+        categories={categories}
+      />
       <OrderListAndRequest
         addLists={addLists}
         setAddLists={setAddLists}

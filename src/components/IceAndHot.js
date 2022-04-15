@@ -19,23 +19,23 @@ function IceAndHot({ setAddLists, menu, setError }) {
 }
 
   const IceBtn = styled.button`
-    color: #3f51b5;
-    border: 2px solid #3f51b5;
+    color: #257488;
+    border: 2px solid #3d94aa;
     min-width: 70px;
     font-weight: 700;
     &:hover{
       color: white;
-      background: ${props => props.color || '#3f51b5' }
+      background: ${props => props.color || '#3d94aa' }
     }
   `
   const HotBtn = styled.button`
     color: #ec407a;
-    border: 2px solid #ec407a;
+    border: 2px solid #ee5a8b;
     min-width: 70px;
     font-weight: 700;
     &:hover{
       color: white;
-      background: ${props => props.color || '#ec407a' }
+      background: ${props => props.color || '#ee5a8b' }
     }
   `
 

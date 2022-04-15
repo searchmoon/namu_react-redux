@@ -28,7 +28,7 @@ console.log(request);
       <OrderListDiv>
         <ul>
           {addLists.map((list, index) => (
-            <Li key={index}>
+            <Li style={{ fontWeight: 700, color: '#666'  }}key={index}>
               {list}
               {
                 <Button onClick={() => deleteBtn(index)}>
@@ -54,7 +54,7 @@ console.log(request);
               textDecoration: "none",
               color: "#777",
             }}
-            to="/order"
+            to="/completeOrder"
           >
             주문
           </Link>

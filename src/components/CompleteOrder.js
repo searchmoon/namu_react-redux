@@ -3,14 +3,16 @@ import styled, { createGlobalStyle } from "styled-components";
 import HeaderDiv from "./Header";
 import reset from "styled-reset";
 
-function Order() {
+function CompleteOrder() {
   return (
     <WrapDiv>
       <GlobalStyle />
       <HeaderDiv />
       <Div>
-        <P>주문이 완료</P>
-        <P>되었습니다 :)</P>
+        <P>주문이 완료되었습니다.</P>
+        <P>금방 준비해드릴게요</P>
+        <P>:)</P>
+        <P>-느린나무 2호점-</P>
       </Div>
     </WrapDiv>
   );
@@ -25,7 +27,7 @@ const WrapDiv = styled.div`
   height: 100vh;
 `;
 const Div = styled.div`
-  width: 50vw;
+  width: 70vw;
   min-height: 15vh;
   border: 2px dashed #338569;
   color: #333;
@@ -48,4 +50,4 @@ const P = styled.p`
   margin: 5px;
 `;
 
-export default Order;
+export default CompleteOrder;

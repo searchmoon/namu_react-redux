@@ -2,7 +2,7 @@ import React from "react";
 import IceAndHot from "./IceAndHot";
 import styled from "styled-components";
 
-function Drink1Menu({ drink1Menu, setAddLists, setError }) {
+function CoffeeAndLatteMenu({ drink1Menu, setAddLists, setError }) {
   return (
     <>
       {drink1Menu.map((menu, index) => (
@@ -28,4 +28,4 @@ function Drink1Menu({ drink1Menu, setAddLists, setError }) {
     color: #444;
   `
 
-export default Drink1Menu;
+export default CoffeeAndLatteMenu;
