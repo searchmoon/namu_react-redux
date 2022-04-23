@@ -2,33 +2,54 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
+import axios from "axios";
 
-function OrderListAndRequest({ addLists, setAddLists, error, setError, request, setRequest }) {
+function OrderListAndRequest({
+  addLists,
+  setAddLists,
+  error,
+  setError,
+  request,
+  setRequest,
+  roomNum
+}) {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
   function deleteBtn(index) {
     const updateLists = addLists.filter((e, idx) => idx !== index);
     setAddLists(updateLists);
   }
-const onTextChange = (e) => {
-  setRequest(() => e.target.value)
+  const onTextChange = (e) => {
+    setRequest(() => e.target.value);
+  };
+  console.log(request);
 
-};
-console.log(request);
+  const reqData = {
+    "order_list": `${addLists}\n${request}`,
+    "room": "룸넘버"
+}
 
- //onClick 함수를 실행했을 때 floatError가 동작을 하면서
-  //상태변수인 error 값이 0 이라면 Error 메세지가 뜨게 하는거 
-  const floatError = () => {
+  const onOrderLists = () => {
+    axios.post(
+      "https://4nvkgjw4ie.execute-api.ap-northeast-2.amazonaws.com/default/namuMessageFunction", 
+      reqData,
+      {headers: {'Content-Type': 'text/plain'}}
+  ).then((response) => {console.log(response)})
+    .catch((error) => {console.log(error)});
+  };
+
+  //onClick 함수를 실행했을 때 floatError가 동작을 하면서
+  //상태변수인 error 값이 0 이라면 Error 메세지가 뜨게 하는거
+  const floatError = (e) => {
     setError(true);
-  }
+  };
   return (
     <Div>
-    
       <h2>주문목록</h2>
       <OrderListDiv>
         <ul>
           {addLists.map((list, index) => (
-            <Li style={{ fontWeight: 700, color: '#666'  }}key={index}>
+            <Li style={{ fontWeight: 700, color: "#666" }} key={index}>
               {list}
               {
                 <Button onClick={() => deleteBtn(index)}>
@@ -46,9 +67,10 @@ console.log(request);
         placeholder="다른 필요한게 있으시면 적어주세요:)"
         value={request}
       ></TextArea>
+      {console.log(error)}
       {error && <Error>* 주문이나 요청사항을 입력해 주세요.*</Error>}
-      {(addLists.length || (request.length > 0)) ? (
-        <OrderButton>
+      {addLists.length || request.length > 0 ? (
+        <OrderButton onClick={onOrderLists}>
           <Link
             style={{
               textDecoration: "none",
@@ -60,17 +82,12 @@ console.log(request);
           </Link>
         </OrderButton>
       ) : (
-    
-        <OrderButton 
-        onClick={floatError}
-        style={{ color: "#777" }}
-        >
-            주문
+        <OrderButton onClick={floatError} style={{ color: "#777" }}>
+          주문
         </OrderButton>
       )}
     </Div>
   );
-  
 }
 
 const Div = styled.div`
@@ -114,7 +131,7 @@ const TextArea = styled.textarea`
 const Error = styled.p`
   color: red;
   margin-top: 10px;
-`
+`;
 const OrderButton = styled.button`
   border: 2px solid #bbb;
   padding: 9px 13px;
