@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -9,6 +10,7 @@ import reset from "styled-reset";
 
 function App() {
   const [main, setMain] = useState(false);
+  let { room } = useParams();
 
   useEffect(() => {
     setTimeout(() => setMain(true), 1000);
@@ -19,8 +21,8 @@ function App() {
       <GlobalStyle />
       {main ? (
         <>
-          <Header />
-          <Main />
+          <Header room={room} />
+          <Main room={room}/>
           <Footer />
         </>
       ) : (
@@ -34,12 +36,10 @@ const GlobalStyle = createGlobalStyle`
   ${reset};
   * {
     box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Urbanist','Noto Sans KR', 'Roboto', sans-serif; 
   }
   body {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Roboto', sans-serif;  
+    font-family: 'Urbanist','Noto Sans KR', 'Roboto', sans-serif; 
   }
   button {
     color: #333;
