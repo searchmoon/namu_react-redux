@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
@@ -11,7 +11,7 @@ function OrderListAndRequest({
   setError,
   request,
   setRequest,
-  roomNum
+  room
 }) {
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
@@ -22,13 +22,11 @@ function OrderListAndRequest({
   const onTextChange = (e) => {
     setRequest(() => e.target.value);
   };
-  console.log(request);
 
   const reqData = {
-    "order_list": `${addLists}\n${request}`,
-    "room": "룸넘버"
+    "order_list": `${addLists.join("\n")}\n\n요청사항)\n${request}`,
+    "room": room
 }
-
   const onOrderLists = () => {
     axios.post(
       "https://4nvkgjw4ie.execute-api.ap-northeast-2.amazonaws.com/default/namuMessageFunction", 
