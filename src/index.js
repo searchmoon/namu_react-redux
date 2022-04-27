@@ -11,6 +11,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}/>
+        <Route path="/:room" element={<App />}/>
         <Route path="/completeOrder" element={<CompleteOrder />}/>
         <Route path="/mail" element={<Mail />}/>
       </Routes>

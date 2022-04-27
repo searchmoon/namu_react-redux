@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-function Drink2Menu({ drink2Menu, setAddLists, setError, isAde }) {
+function AdeAndTeaMenu({ drink2Menu, setAddLists, setError, isAde }) {
   const onClick = (e) => {
     setAddLists((lists) => [...lists, e.target.innerText]);
     setError(false);
   };
-
+  
   return (
     <DivWrap>
       <Div>
@@ -31,6 +31,7 @@ const DivWrap = styled.div`
 const Div = styled.div`
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  gap: 2px;
   width: 100%;
   max-width: 1300px;
   padding: 0 30px;
@@ -55,4 +56,4 @@ const Button = styled.button`
   }
 `;
 
-export default Drink2Menu;
+export default AdeAndTeaMenu;

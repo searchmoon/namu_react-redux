@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({room}) {
   return (
     <HeaderDiv className="header">
       <InnerDiv className="inner">
@@ -14,7 +14,7 @@ function Header() {
         }}
         ><h1>느린나무2호점</h1>
         </Link>
-        <span>test</span>
+        <span>{room}</span>
       </InnerDiv>
     </HeaderDiv>
   );

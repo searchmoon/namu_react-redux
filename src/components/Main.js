@@ -5,7 +5,7 @@ import OrderListAndRequest from "./OrderListAndRequest";
 import styled from "styled-components";
 import { useState } from "react";
 
-function Main() {
+function Main({room}) {
   const categories = ["Coffee", "Latte", "Ade", "Tea"];
   const [addLists, setAddLists] = useState([]);
   const [request, setRequest] = useState("");
@@ -34,6 +34,7 @@ function Main() {
         setError={setError}
         request={request}
         setRequest={setRequest}
+        room={room}
       />
     </Div>
   );
