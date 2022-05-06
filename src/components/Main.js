@@ -10,7 +10,6 @@ function Main({room}) {
   const [addLists, setAddLists] = useState([]);
   const [request, setRequest] = useState("");
   const [error, setError] = useState(false);
-  console.log(addLists);
 
   return (
     <Div>
