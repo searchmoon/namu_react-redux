@@ -7,18 +7,26 @@ export const orderSlice = createSlice({
   name: "order",
   initialState: {
     lists: [],
+    test: "",
+    test2: undefined,
   },
   reducers: {
-    //type : 'order/addLists', payload : '음료 이름' <- 함수에서 전달한 값, addLists라는 함수를 사용할때
+    //action에는 1.type : 'order/addLists', 2.payload : '음료 이름' <- 함수에서 전달한 값, addLists라는 함수를 사용할때
     //전달한 값
-    //state : store 변수가 들어있음.
+    //state : 모든 store 변수들이 들어있음.
+    //store 변수는 initialState에서 초기값을 만들어줌
     addLists: (state, action) => {
       console.log(action.payload);
       state.lists = [...state.lists, action.payload];
     },
+    deleteLists: (state, action) => {
+      state.lists = state.lists.filter((e, idx) => {
+        return idx !== action.payload;
+      });
+    }
   },
 });
 
-export const { addLists } = orderSlice.actions;
+export const { addLists, deleteLists } = orderSlice.actions;
 
 export default orderSlice.reducer;

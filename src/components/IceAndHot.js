@@ -14,7 +14,6 @@ function IceAndHot({ menu, setError }) {
       따로 우리가 선언하지는 않지만
       슬라이스라는 애를 생성할때 자동으로 액션 타입을
       만들어주는듯한 느낌. action.type = 'order/addLists'
-
     */
 
     dispatch(addLists(menu + " " + e.target.innerText));

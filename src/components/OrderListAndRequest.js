@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
 import axios from "axios";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { deleteLists } from "../slices";
 function OrderListAndRequest({
-  setAddLists,
   error,
   setError,
   request,
@@ -14,13 +13,18 @@ function OrderListAndRequest({
   room,
 }) {
   const lists = useSelector((state) => state.order.lists);
-
+  const dispatch = useDispatch();
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
   function deleteBtn(index) {
-    const updateLists = lists.filter((e, idx) => idx !== index);
-    setAddLists(updateLists);
+  
+    dispatch(deleteLists(index));
   }
+  //주문목록에서 엑스버튼을 눌렀을 때 
+//1.onclick 이벤트가 발생되고
+//2.deleteBtn을 호출하는데 index를 전달하고
+//3.dispatch할 때 deleteLists함수(이 함수는 action이다)로 index를 전달.
+//4. 이 인덱스는 action.payload로 들어온다.
   const onTextChange = (e) => {
     setRequest(() => e.target.value);
   };
@@ -49,6 +53,7 @@ function OrderListAndRequest({
   const floatError = (e) => {
     setError(true);
   };
+
   return (
     <Div>
       <h2>주문목록</h2>

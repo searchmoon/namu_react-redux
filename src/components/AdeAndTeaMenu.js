@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { addLists } from "../slices";
 
-function AdeAndTeaMenu({ drink2Menu, setAddLists, setError, isAde }) {
+function AdeAndTeaMenu({ drink2Menu, setError, isAde }) {
+  const dispatch = useDispatch();
+
   const onClick = (e) => {
-    setAddLists((lists) => [...lists, e.target.innerText]);
+    dispatch(addLists(e.target.innerText));
     setError(false);
   };
   

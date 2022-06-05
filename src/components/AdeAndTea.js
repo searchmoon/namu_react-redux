@@ -2,7 +2,7 @@ import React from "react";
 import AdeAndTeaMenu from "./AdeAndTeaMenu";
 import styled from "styled-components";
 
-function AdeAndTea({ setAddLists, setError, error, categories}) {
+function AdeAndTea({ setError, error, categories}) {
   const adeMenu = [
     "복숭아 아이스티",
     "청포도 에이드",
@@ -37,7 +37,6 @@ function AdeAndTea({ setAddLists, setError, error, categories}) {
       <h3>{categories[2]}</h3>
       <AdeAndTeaMenu
         drink2Menu={adeMenu}
-        setAddLists={setAddLists}
         error={error}
         setError={setError}
         isAde={true}
@@ -45,7 +44,6 @@ function AdeAndTea({ setAddLists, setError, error, categories}) {
       <h3>{categories[3]}</h3>
       <AdeAndTeaMenu
         drink2Menu={teaMenu}
-        setAddLists={setAddLists}
         error={error}
         setError={setError}
         isAde={false}

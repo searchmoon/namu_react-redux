@@ -7,7 +7,6 @@ import { useState } from "react";
 
 function Main({room}) {
   const categories = ["Coffee", "Latte", "Ade", "Tea"];
-  const [addLists, setAddLists] = useState([]);
   const [request, setRequest] = useState("");
   const [error, setError] = useState(false);
 
@@ -15,20 +14,16 @@ function Main({room}) {
     <Div>
       <H2>MENU</H2>
       <CoffeeAndLatte
-        setAddLists={setAddLists}
         error={error}
         setError={setError}
         categories={categories}
       />
       <AdeAndTea
-        setAddLists={setAddLists}
         error={error}
         setError={setError}
         categories={categories}
       />
       <OrderListAndRequest
-        addLists={addLists}
-        setAddLists={setAddLists}
         error={error}
         setError={setError}
         request={request}
