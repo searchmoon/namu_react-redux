@@ -22,7 +22,7 @@ function App() {
       {main ? (
         <>
           <Header room={room} />
-          <Main room={room}/>
+          <Main room={room} />
           <Footer />
         </>
       ) : (
