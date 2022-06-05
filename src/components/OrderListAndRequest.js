@@ -4,20 +4,20 @@ import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { deleteLists } from "../slices";
+
 function OrderListAndRequest({
-  error,
-  setError,
   request,
   setRequest,
   room,
 }) {
+  const [error, setError] = useState(false);
   const lists = useSelector((state) => state.order.lists);
   const dispatch = useDispatch();
   //iceandhot컴포넌트의 ice와 hot의 버튼을 클릭했을 때,
   //adddrink에 li에 그 btn의 innertext를 넣어줌
   function deleteBtn(index) {
-  
     dispatch(deleteLists(index));
   }
   //주문목록에서 엑스버튼을 눌렀을 때 

@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { addLists } from "../slices";
 
-function AdeAndTeaMenu({ drink2Menu, setError, isAde }) {
+function AdeAndTeaMenu({ drink2Menu, isAde }) {
   const dispatch = useDispatch();
 
   const onClick = (e) => {
     dispatch(addLists(e.target.innerText));
-    setError(false);
   };
   
   return (

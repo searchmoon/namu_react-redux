@@ -2,7 +2,7 @@ import React from "react";
 import AdeAndTeaMenu from "./AdeAndTeaMenu";
 import styled from "styled-components";
 
-function AdeAndTea({ setError, error, categories}) {
+function AdeAndTea({ categories }) {
   const adeMenu = [
     "복숭아 아이스티",
     "청포도 에이드",
@@ -37,15 +37,11 @@ function AdeAndTea({ setError, error, categories}) {
       <h3>{categories[2]}</h3>
       <AdeAndTeaMenu
         drink2Menu={adeMenu}
-        error={error}
-        setError={setError}
         isAde={true}
       />
       <h3>{categories[3]}</h3>
       <AdeAndTeaMenu
         drink2Menu={teaMenu}
-        error={error}
-        setError={setError}
         isAde={false}
       />
     </Div>
