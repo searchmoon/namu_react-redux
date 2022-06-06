@@ -2,13 +2,13 @@ import React from "react";
 import IceAndHot from "./IceAndHot";
 import styled from "styled-components";
 
-function CoffeeAndLatteMenu({ drink1Menu, setError }) {
+function CoffeeAndLatteMenu({ drink1Menu }) {
   return (
     <>
       {drink1Menu.map((menu, index) => (
         <WrapDiv key={index}>
           <MenuDiv>{menu}</MenuDiv>
-          <IceAndHot menu={menu} setError={setError}/>
+          <IceAndHot menu={menu} />
         </WrapDiv>
       ))}
     </>

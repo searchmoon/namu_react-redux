@@ -15,7 +15,10 @@ function App() {
   useEffect(() => {
     setTimeout(() => setMain(true), 1000);
   }, []);
-
+  //useEffect
+  //두번째 인자에 [] 이 빈 배열이 들어가면 component가 mount 됐을 때에만 실행된다(처음 나타났을 때)
+  //두번째 인자에 값이 없으면 리렌더링 될 때 마다 실행한다.
+  
   return (
     <div>
       <GlobalStyle />

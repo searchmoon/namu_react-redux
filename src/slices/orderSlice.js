@@ -7,8 +7,6 @@ export const orderSlice = createSlice({
   name: "order",
   initialState: {
     lists: [],
-    test: "",
-    test2: undefined,
   },
   reducers: {
     //action에는 1.type : 'order/addLists', 2.payload : '음료 이름' <- 함수에서 전달한 값, addLists라는 함수를 사용할때
@@ -20,9 +18,7 @@ export const orderSlice = createSlice({
       state.lists = [...state.lists, action.payload];
     },
     deleteLists: (state, action) => {
-      state.lists = state.lists.filter((e, idx) => {
-        return idx !== action.payload;
-      });
+      state.lists = [...state.lists].filter((e, idx) => idx !== action.payload);
     }
   },
 });

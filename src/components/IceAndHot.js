@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
-import { addLists } from "../slices";
+import { useDispatch, useSelector } from "react-redux";
+import { addLists } from "../slices/orderSlice";
+import { floatError } from "../slices/errorSlice";
 
-function IceAndHot({ menu, setError }) {
+function IceAndHot({ menu }) {
   const dispatch = useDispatch();
-
+  const isError = useSelector((state) => state.error.isError);
   const onClick = (e) => {
-    
     /* 
       디스패치라는 애는 액션 객체를 리듀서에 전달하는 역할을
       하는데 여기에서는 액션이 생략되어 있어서
@@ -15,8 +15,9 @@ function IceAndHot({ menu, setError }) {
       슬라이스라는 애를 생성할때 자동으로 액션 타입을
       만들어주는듯한 느낌. action.type = 'order/addLists'
     */
-
     dispatch(addLists(menu + " " + e.target.innerText));
+    dispatch(floatError(false));
+    console.log(isError);
   };
 
   return (
