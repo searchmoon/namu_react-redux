@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { GrClose } from "react-icons/gr";
 import axios from "axios";
@@ -10,7 +10,7 @@ import { floatError } from "../slices/errorSlice";
 
 function OrderListAndRequest({ room }) {
   const [request, setRequest] = useState("");
-
+  const navigate = useNavigate();
   const lists = useSelector((state) => state.order.lists);
   const isError = useSelector((state) => state.error.isError);
   const dispatch = useDispatch();
@@ -32,7 +32,9 @@ function OrderListAndRequest({ room }) {
     order_list: `${lists.join("\n")}\n\n요청사항)\n${request}`,
     room: room,
   };
+  
   const onOrderLists = () => {
+    if(lists.length || request.length > 0){
     axios
       .post(
         "https://4nvkgjw4ie.execute-api.ap-northeast-2.amazonaws.com/default/namuMessageFunction",
@@ -41,16 +43,19 @@ function OrderListAndRequest({ room }) {
       )
       .then((response) => {
         console.log(response);
+        navigate("/completeOrder");
       })
       .catch((error) => {
         console.log(error);
       });
+    } else {
+      dispatch(floatError(true));
+    }
   };
 
   //onClick 함수를 실행했을 때 floatError가 동작을 하면서
   //상태변수인 error 값이 0 이라면 Error 메세지가 뜨게 하는거
-
-
+  
   return (
     <Div>
       <h2>주문목록</h2>
@@ -76,26 +81,7 @@ function OrderListAndRequest({ room }) {
         value={request}
       ></TextArea>
       {isError && <Error>* 주문이나 요청사항을 입력해 주세요.*</Error>}
-      {lists.length || request.length > 0 ? (
-        <OrderButton onClick={onOrderLists}>
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "#777",
-            }}
-            to="/completeOrder"
-          >
-            주문
-          </Link>
-        </OrderButton>
-      ) : (
-        <OrderButton
-          onClick={() => dispatch(floatError(true))}
-          style={{ color: "#777" }}
-        >
-          주문
-        </OrderButton>
-      )}
+      {<OrderButton onClick={onOrderLists}>주문</OrderButton>}
     </Div>
   );
 }
