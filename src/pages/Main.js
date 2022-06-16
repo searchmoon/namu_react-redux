@@ -1,7 +1,7 @@
 import React from "react";
-import CoffeeAndLatte from "./CoffeeAndLatte";
-import AdeAndTea from "./AdeAndTea";
-import OrderListAndRequest from "./OrderListAndRequest";
+import CoffeeAndLatte from "../components/CoffeeAndLatte";
+import AdeAndTea from "../components/AdeAndTea";
+import OrderListAndRequest from "../components/OrderListAndRequest";
 import styled from "styled-components";
 
 

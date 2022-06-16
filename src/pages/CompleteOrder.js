@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import HeaderDiv from "./Header";
+import HeaderDiv from "../components/Header";
 import reset from "styled-reset";
 
 function CompleteOrder() {

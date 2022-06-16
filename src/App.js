@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import Main from "./pages/Main";
 import Footer from "./components/Footer";
 import { createGlobalStyle } from "styled-components";
-import Splash from "./components/Splash";
+import Splash from "./pages/Splash";
 import reset from "styled-reset";
 
 function App() {
